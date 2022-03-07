@@ -1,0 +1,44 @@
+﻿@model WebApplication1.Models.Film
+@{
+    ViewBag.Title = "VeriKaydet";
+}
+
+<h2>VeriKaydet</h2>
+@using (Html.BeginForm("VeriKaydet", "Film", FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>@Html.LabelFor(m=>m.FilmAdi)</td>
+        <td>@Html.TextBoxFor(m=>m.FilmAdi)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m=>m.FilmTuru.FilmTuruAdi)</td>
+        @*<td>@Html.TextBoxFor(m=>m.FilmTuruID)</td>*@
+        <td>@Html.DropDownListFor(m=>m.FilmTuruID,(SelectList)ViewBag.Turler)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.FilmKalitesi.FilmKalitesiCozunurluk)</td>
+        <td>@Html.DropDownListFor(m=>m.FilmKalitesiID,(SelectList)ViewBag.Kaliteler)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.FilmKare.FilmKareSayisi)</td>
+        <td>@Html.DropDownListFor(m=>m.FilmKareID,(SelectList)ViewBag.Kareler)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.Yonetmen)</td>
+        <td>@Html.TextBoxFor(m => m.Yonetmen)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.Basrol)</td>
+        <td>@Html.TextBoxFor(m=>m.Basrol)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.Hasilat)</td>
+        <td>@Html.TextBoxFor(m=>m.Hasilat)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" name="name" value="Gönder" /></td>
+    </tr>
+</table>
+}

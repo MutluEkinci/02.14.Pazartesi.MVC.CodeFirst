@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebApplication1.Models.Film>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("ActionLink", "Index", null, new { @class = "btn btn-primary", onclick = "return confirm('ActionLink confirm mesajıdır.');" })
+<table>
+    <tr>
+        <td>Film Adı</td>
+        <td>Film Türü</td>
+        <td>Film Karesi</td>
+        <td>Film Kalitesi</td>
+        <td>Yönetmen</td>
+        <td>Başrol</td>
+        <td>Hasılat</td>
+    </tr>
+
+    @using (Html.BeginForm("Index", "Film", FormMethod.Get))
+    {
+        @Html.TextBox("ara")
+        <input type="submit" name="name" value="Ara" class="btn btn-primary" />
+    }
+    <br />
+    @Html.ActionLink("Film Ekle", "VeriKaydetVM", null, new { @class = "btn btn-primary" })
+    @foreach (var film in Model)
+    {
+        <tr>
+            <td>@film.FilmAdi</td>
+            <td>@film.FilmTuru.FilmTuruAdi</td>
+            <td>@film.FilmKare.FilmKareSayisi</td>
+            <td>@film.FilmKalitesi.FilmKalitesiCozunurluk</td>
+            <td>@film.Yonetmen</td>
+            <td>@film.Basrol</td>
+            <td>@film.Hasilat</td>
+            <td>@Html.ActionLink("Güncelle", "VeriGuncelle", new { id = film.FilmID })</td><!--Query string üzerinden ID gönderilir.-->
+            <td>@Html.ActionLink("Sil", "VeriSil", new { id = film.FilmID, onclick = "return confirm('Emin misiniz?')" }, new { htmlAttributes = new { @class = "btn btn-primary" } })</td>
+        </tr>
+    }
+    <tr>
+    </tr>
+</table>
+@for (int i = 0; i < ViewBag.Sayi; i++)
+{
+    @Html.ActionLink((i + 1).ToString(), "Index", new { sayfa = i })
+}
+
+

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication1.Models.Film>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FilmKalitesi.FilmKalitesiCozunurluk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilmKare.FilmKareSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilmTuru.FilmTuruAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilmAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yonetmen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Basrol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hasilat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmKalitesi.FilmKalitesiCozunurluk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmKare.FilmKareSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmTuru.FilmTuruAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Yonetmen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Basrol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hasilat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FilmID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FilmID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FilmID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model WebApplication1.Models.Film
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Film</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmKalitesi.FilmKalitesiCozunurluk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmKalitesi.FilmKalitesiCozunurluk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmKare.FilmKareSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmKare.FilmKareSayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmTuru.FilmTuruAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmTuru.FilmTuruAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yonetmen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yonetmen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Basrol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Basrol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hasilat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hasilat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FilmID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

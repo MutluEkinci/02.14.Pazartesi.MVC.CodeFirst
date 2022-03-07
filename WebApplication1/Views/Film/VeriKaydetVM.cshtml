@@ -1,0 +1,51 @@
+﻿@model WebApplication1.Models.ViewModel.Film_VM
+@{
+    ViewBag.Title = "VeriKaydetVM";
+}
+
+<h2>VeriKaydetVM</h2>
+
+@using (Html.BeginForm("VeriKaydetVM", "Film", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(m => m.Film.FilmAdi)</td>
+            <td>
+                @Html.TextBoxFor(m => m.Film.FilmAdi)
+                @Html.ValidationMessageFor(m => m.Film.FilmAdi)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Film.FilmTuru.FilmTuruAdi)</td>
+            <td>@Html.DropDownListFor(m => m.Film.FilmTuruID, (SelectList)Model.Turler)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Film.FilmKalitesi.FilmKalitesiCozunurluk)</td>
+            <td>@Html.DropDownListFor(m => m.Film.FilmKalitesiID, (SelectList)Model.Kaliteler)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Film.FilmKare.FilmKareSayisi)</td>
+            <td>@Html.DropDownListFor(m => m.Film.FilmKareID, (SelectList)Model.Kareler)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Film.Yonetmen)</td>
+            <td>@Html.TextBoxFor(m => m.Film.Yonetmen)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Film.Basrol)</td>
+            <td>@Html.TextBoxFor(m => m.Film.Basrol)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Film.Hasilat)</td>
+            <td>
+                @Html.TextBoxFor(m => m.Film.Hasilat)
+                @Html.ValidationMessageFor(m=>m.Film.Hasilat)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="name" value="Gönder" /></td>
+        </tr>
+        @Html.ValidationSummary()@*Otomatik olarak validation mesajını formun üstünde yazar.*@
+    </table>
+}
